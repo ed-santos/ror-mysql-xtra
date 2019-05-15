@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>XTRA</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="/xtraxtra.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/xtraxtra.js"></script>
+
+  </head>
+
+  <body>
+  <div class="wrapper">
+    <header class="backG">
+      <nav>
+        <div class="menu-icon">
+          <i class="fa fa-bars fa-2x"></i>
+        </div>
+        <div class="logo">
+          <a href ="/"><img src="/xtralogo.png" height="60px"></a>
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+
+            <% if user_signed_in? %>
+              <li><a href="#"></a></li>
+              <li><%= link_to('Posts', posts_url) %></li>
+              <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
+            <% else %>
+              <li><a href="#about">About</a></li>
+              <li><a href="#"></a></li>
+              <li><%= link_to('Register', new_user_registration_path) %></li>
+              <li><%= link_to('Log-in', new_user_session_path) %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="content">
+    <%= yield %>
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    </div>
+  </div>
+  </body>
+</html>

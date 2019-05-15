@@ -1,0 +1,27 @@
+<style>
+  header {
+    height: 20px;
+  }
+</style>
+
+    <h1>Enter new post details</h1><br>
+
+      <%= form_for @post do |f| %>
+        <%= f.label :title %><br>
+        <%= f.text_field :title%>
+
+        <br><br>
+
+        <%= f.label :description %><br>
+        <%= f.text_field :description%>
+
+        <br><br>
+
+        <%= f.label :author %><br>
+        <%= f.text_field :author%>
+
+        <br><br>
+
+        <%= f.submit %>
+
+      <% end %>

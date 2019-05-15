@@ -1,0 +1,30 @@
+<style>
+  header {
+    height: 20px;
+  }
+</style>
+
+  <h2>List of Posts  <a href = "/posts/new" class="btn btn-success"> Add New Post </a></h2> <br>
+
+
+  <div class="row">
+
+    <% @list_of_posts.each do |post| %>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <h3> <%= post.author %></h3>
+            <p class="card-text"><%= post.description %></p>
+            <a href = "/posts/<%= post.id %>" class = "btn btn-primary"> More Info </a>
+            <a href = "/posts/<%= post.id %>/edit" class = "btn btn-success"> Edit </a>
+           <%= link_to 'Delete',post, method: :delete, :class => "btn btn-danger", data: {confirm: 'Are you sure?'} %>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+
+

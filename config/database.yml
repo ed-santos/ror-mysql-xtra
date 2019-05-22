@@ -21,9 +21,4 @@ test:
   database: db/test.pg
 
 production:
-  <<: *default
-  host: ec2-54-227-245-146.compute-1.amazonaws.com
-  database: dcvojcdv61k922
-  user: oofownbornfkrm
-  port: 5432
-  password: 2a4034e8a8be4188183ec17ce960140270f988aed81928eb776c580d8e60f428
+  url: <%= ENV['DATABASE_URL'] %>
